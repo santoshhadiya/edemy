@@ -21,12 +21,15 @@ const Navbar = () => {
           isCourseListPage ? "bg-white" : "bg-cyan-100/70"
         }`}
       >
+        <div >
         <img
           src={assets.logo}
           alt="Logo"
           onClick={()=>navigate("/")}
           className="w-28 1g:w-32 cursor-pointer"
         />
+        <p className="text-[10px] ml-[40px]">By Santosh Hadiya</p>
+        </div>
         
         <div className="hidden md:flex items-center gap-5 text-gray-500">
         {user && <div>

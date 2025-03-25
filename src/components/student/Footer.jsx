@@ -12,8 +12,8 @@ const Footer = () => {
 
           </div>
           <p className="mt-3 text-sm leading-relaxed text-left">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text.
+          This LMS platform is developed by Santosh Hadiya, a passionate BCA student with a keen interest in web development and e-learning solutions. The goal of this project is to create a seamless platform where students can access quality courses, and educators can easily share their knowledge. As this project is still in development, I am constantly working on improving its features and functionality. Feel free to reach out for any feedback, suggestions, or collaboration opportunities!
+          <br/><br/><b>Contact us :</b> santoshhadiya333@gmail.com
           </p>
         </div>
 
@@ -49,7 +49,7 @@ const Footer = () => {
 
       {/* Bottom Section - Copyright */}
       <div className="border-t border-gray-700 mt-10 pt-6 text-center text-sm">
-        Copyright 2024 © Edemy. All Rights Reserved.
+        Copyright 2025 © Edemy. All Rights Reserved.
       </div>
     </footer>
   );
