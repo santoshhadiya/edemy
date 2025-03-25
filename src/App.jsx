@@ -1,45 +1,44 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
-const Home = () => (
-  <div className="p-6 text-center">
-    <h1 className="text-2xl font-bold">Home Page</h1>
-    <p>Welcome to the home page!</p>
-  </div>
-);
-
-const About = () => (
-  <div className="p-6 text-center">
-    <h1 className="text-2xl font-bold">About Page</h1>
-    <p>This is the about page of our React app.</p>
-  </div>
-);
-
-const Contact = () => (
-  <div className="p-6 text-center">
-    <h1 className="text-2xl font-bold">Contact Page</h1>
-    <p>Feel free to reach out to us.</p>
-  </div>
-);
+import { Route, Routes, useMatch } from "react-router-dom";
+import Home from "./pages/student/Home";
+import CoursesList from "./pages/student/CoursesList";
+import CourseDetails from "./pages/student/CourseDetails";
+import MyEnrollments from "./pages/student/MyEnrollments";
+import Player from "./pages/student/Player";
+import Loading from "./components/student/Loading";
+import Educator from "./pages/educator/Educator";
+import Dashboard from "./pages/educator/Dashboard";
+import AddCourse from "./pages/educator/AddCourse";
+import MyCourses from "./pages/educator/MyCourses";
+import StudentsEnrolled from "./pages/educator/StudentsEnrolled";
+import NavBar from "./components/aducator/NavBar";
+import Navbar from "./components/student/Navbar";
+import "quill/dist/quill.snow.css";
 
 const App = () => {
+
+  const isEducatorRoute=useMatch("/educator/*");
+ 
   return (
-    <Router>
-      <div className="p-4">
-        <nav className="flex justify-center space-x-4 bg-gray-200 p-2 rounded-lg">
-          <Link className="text-blue-600 hover:underline" to="/">Home</Link>
-          <Link className="text-blue-600 hover:underline" to="/about">About</Link>
-          <Link className="text-blue-600 hover:underline" to="/contact">Contact</Link>
-        </nav>
-        <div className="mt-4">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </div>
-      </div>
-    </Router>
+    <div className="text-default min-h-screen bg-white">
+      {!isEducatorRoute &&  <Navbar />}
+      
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/course/:id" element={<CourseDetails />} />
+        <Route path="/course-list" element={<CoursesList />} />
+        <Route path="/course-list/:input" element={<CoursesList />} />
+        <Route path="/my-enrollments" element={<MyEnrollments />} />
+        <Route path="/player/:courseId" element={<Player />} />
+        <Route path="/loading/:path" element={<Loading />} />
+        <Route path="/educator" element={<Educator />}>
+          <Route path="/educator" element={<Dashboard />} />
+          <Route path="add-cours" element={<AddCourse />} />
+          <Route path="my-courses" element={<MyCourses />} />
+          <Route path="student-enrolled" element={<StudentsEnrolled />} />
+        </Route>
+      </Routes>
+    </div>
   );
 };
 
