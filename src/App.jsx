@@ -24,7 +24,7 @@ const App = () => {
       {!isEducatorRoute && <Navbar />}
       
       {/* Render Home page ONLY if the exact path is "/my-react-app/" */}
-      {location.pathname === "/my-react-app/" && <Home />}
+      {location.pathname === "/edemy/" && <Home />}
 
       <Routes>
         <Route path="/" element={<Home />} />
