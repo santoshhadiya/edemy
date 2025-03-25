@@ -27,6 +27,7 @@ const Navbar = () => {
           onClick={()=>navigate("/")}
           className="w-28 1g:w-32 cursor-pointer"
         />
+        
         <div className="hidden md:flex items-center gap-5 text-gray-500">
         {user && <div>
           <button onClick={()=>navigate("/educator")} className="cursor-pointer">{isEducator ? "Educator Dashboard" : "Become Educator"}</button> |{" "}
